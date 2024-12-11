@@ -1,0 +1,17 @@
+externalId: 'create_asset_hierarchy'
+name: 'create_asset_hierarchy'
+isPublic: true
+conflictMode: upsert
+destination:
+  type: asset_hierarchy
+ignoreNullFields: true
+dataSetExternalId: {{ icapi_ds_external_id }}
+# Specify credentials separately like this:
+# You can also use different credentials for running the transformations than the credentials you use to deploy.
+authentication:
+  clientId: {{ icapi_extractors_client_id }}
+  clientSecret: {{ icapi_extractors_client_secret }}
+  tokenUri: {{ IDP_TOKEN_URL }} # replaction: upsertaced by .env
+  # Optional: If idP requires providing the cicd_scopes
+  cdfProjectName: {{ CDF_PROJECT }}
+  scopes: {{ IDP_SCOPES }}

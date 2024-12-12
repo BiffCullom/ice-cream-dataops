@@ -1,0 +1,77 @@
+workflowExternalId: wf_icapi_data_pipeline
+version: '1'
+workflowDefinition:
+  description: 'Run tasks in sequence'
+  tasks:
+    - externalId: icapi_assets_extractor
+      type: 'function'
+      parameters:
+        function:
+          externalId: icapi_assets_extractor
+          data: {}
+        isAsyncComplete: false
+      name: 'Task icapi Asset Extractor'
+      description: First task
+      retries: 3
+      timeout: 3600
+      onFailure: 'abortWorkflow'
+      dependsOn:
+        - externalId: create_asset_hierarchy
+
+    - externalId: create_asset_hierarchy
+      type: 'function'
+      parameters:
+        function:
+          externalId: create_asset_hierarchy
+          data: {}
+        isAsyncComplete: false  
+      name: 'Task create_asset_hierarchy'
+      description: Second task
+      retries: 3 
+      timeout: 3600
+      onFailure: 'abortWorkflow'
+      dependsOn:
+        - externalId: icapi_ts_assets_contextualization
+
+    - externalId: oee_timeseries
+      type: 'function'
+      parameters:
+        function:
+          externalId: 'oee_timeseries'
+          data: {}
+        isAsyncComplete: false  
+      name: 'Task oee_timeseries'
+      description: Third task
+      retries: 3 
+      timeout: 3600
+      onFailure: 'abortWorkflow'
+
+    - externalId: icapi_timeseries_extractor
+      type: 'function'
+      parameters:
+        function:
+          externalId: icapi_timeseries_extractor
+          data: {}
+        isAsyncComplete: false  
+      name: 'Task icapi_timeseries_extractor'
+      description: Forth task
+      retries: 3 
+      timeout: 3600
+      onFailure: 'abortWorkflow'
+      dependsOn:
+        - externalId: icapi_datapoints_extractor
+
+    - externalId: icapi_datapoints_extractor
+      type: 'function'
+      parameters:
+        function:
+          externalId: icapi_datapoints_extractor
+          data: {}
+        isAsyncComplete: false  
+      name: 'Task icapi_datapoints_extractor'
+      description: Fifth task
+      retries: 3 
+      timeout: 3600
+      onFailure: 'abortWorkflow'
+      dependsOn:
+        - externalId: oee_timeseries

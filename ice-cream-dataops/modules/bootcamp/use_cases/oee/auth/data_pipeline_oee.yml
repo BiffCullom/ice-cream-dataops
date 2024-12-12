@@ -1,5 +1,5 @@
 name: data_pipeline_oee
-sourceId: c42e62be-e4cc-425d-a534-8d1d623ccb12
+sourceId: {{ data_pipeline_oee_source_id }}
 metadata:
   origin: 'cdf-project-templates'
 capabilities:

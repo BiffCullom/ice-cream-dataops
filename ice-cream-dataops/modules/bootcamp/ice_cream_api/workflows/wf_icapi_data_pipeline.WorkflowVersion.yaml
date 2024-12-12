@@ -38,7 +38,7 @@ workflowDefinition:
       parameters:
         transformation:
           externalId: icapi_ts_assets_contextualization
-          data: {}
+          concurrencyPolicy: fail
         isAsyncComplete: false  
       name: 'Task icapi_ts_assets_contextualization'
       description: Third task

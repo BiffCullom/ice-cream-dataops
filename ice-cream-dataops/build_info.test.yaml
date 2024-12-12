@@ -101,7 +101,7 @@ modules:
   - name: ice_cream_api
     location:
       path: modules/bootcamp/ice_cream_api
-      hash: ff3270a5
+      hash: 254b7271
     build_variables:
     - key: CDF_PROJECT
       value: cdf-bootcamp-30-test
@@ -132,7 +132,7 @@ modules:
       is_selected: true
       location: modules/bootcamp
     - key: data_pipeline_oee_source_id
-      value: c42e62be-e4cc-425d-a534-8d1d623ccb12
+      value: 646b5cb3-1f08-4650-bea0-6318d0507f31
       is_selected: true
       location: modules/bootcamp
     - key: readwrite_source_id
@@ -398,7 +398,7 @@ modules:
       is_selected: true
       location: modules/bootcamp
     - key: data_pipeline_oee_source_id
-      value: c42e62be-e4cc-425d-a534-8d1d623ccb12
+      value: 646b5cb3-1f08-4650-bea0-6318d0507f31
       is_selected: true
       location: modules/bootcamp
     - key: readwrite_source_id

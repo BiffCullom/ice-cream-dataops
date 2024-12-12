@@ -117,7 +117,7 @@ capabilities:
         - WRITE
       scope:
         all: {}
-          - eventsAcl:
+  - eventsAcl:
       actions:
         - READ
         - WRITE

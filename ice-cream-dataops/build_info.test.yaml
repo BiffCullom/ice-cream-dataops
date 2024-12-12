@@ -98,10 +98,10 @@ modules:
     warning_count: 0
     status: Success
     iteration: 1
-  - name: ice_cream_api
+  - name: oee
     location:
-      path: modules/bootcamp/ice_cream_api
-      hash: 254b7271
+      path: modules/bootcamp/use_cases/oee
+      hash: 1802dfb0
     build_variables:
     - key: CDF_PROJECT
       value: cdf-bootcamp-30-test
@@ -136,11 +136,183 @@ modules:
       is_selected: true
       location: modules/bootcamp
     - key: readwrite_source_id
-      value: c42e62be-e4cc-425d-a534-8d1d623ccb12
+      value: 71c83e29-f152-4fa0-ab55-0b85452b6582
       is_selected: true
       location: modules/bootcamp
     - key: readonly_source_id
-      value: c42e62be-e4cc-425d-a534-8d1d623ccb12
+      value: 71c83e29-f152-4fa0-ab55-0b85452b6582
+      is_selected: true
+      location: modules/bootcamp
+    - key: icapi_extractors_source_id
+      value: 39376f27-8890-44f0-8b07-bd95fb48c689
+      is_selected: true
+      location: modules/bootcamp
+    - key: data_developer_source_id
+      value: 0e61e9f9-8242-4da5-9228-4682baf6f9c4
+      is_selected: true
+      location: modules/bootcamp
+    - key: data_pipeline_oee_client_id
+      value: ${DATA_PIPELINE_OEE_CLIENT_ID}
+      is_selected: true
+      location: modules/bootcamp
+    - key: data_pipeline_oee_client_secret
+      value: ${DATA_PIPELINE_OEE_CLIENT_SECRET}
+      is_selected: true
+      location: modules/bootcamp
+    - key: icapi_extractors_client_id
+      value: ${ICAPI_EXTRACTORS_CLIENT_ID}
+      is_selected: true
+      location: modules/bootcamp
+    - key: icapi_extractors_client_secret
+      value: ${ICAPI_EXTRACTORS_CLIENT_SECRET}
+      is_selected: true
+      location: modules/bootcamp
+    - key: icapi_ds_external_id
+      value: ds_icapi
+      is_selected: true
+      location: modules/bootcamp
+    - key: uc_oee_ds_external_id
+      value: ds_uc_oee
+      is_selected: true
+      location: modules/bootcamp/use_cases/oee
+    resources:
+      auth:
+      - identifier:
+          name: data_pipeline_oee
+        source:
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/auth/data_pipeline_oee.yml
+          hash: 0afae7d2
+        kind: Group
+      data_sets:
+      - identifier:
+          externalId: ds_uc_oee
+        source:
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/data_sets/data_sets.yml
+          hash: 4612e700
+        kind: DataSet
+      functions:
+      - identifier:
+          externalId: oee_timeseries
+        source:
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/functions.yaml
+          hash: 3579da40
+        kind: Function
+      - identifier:
+          functionExternalId: oee_timeseries
+          name: Run calculations every 10 minutes for last hour of data
+        source:
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
+          hash: 74530d91
+        kind: Schedule
+      - identifier:
+          functionExternalId: oee_timeseries
+          name: Run calculations once a day for 30 days history (Oslo)
+        source:
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
+          hash: 74530d91
+        kind: Schedule
+      - identifier:
+          functionExternalId: oee_timeseries
+          name: Run calculations once a day for 30 days history (Nuremberg)
+        source:
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
+          hash: 74530d91
+        kind: Schedule
+      - identifier:
+          functionExternalId: oee_timeseries
+          name: Run calculations once a day for 30 days history (Marseille)
+        source:
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
+          hash: 74530d91
+        kind: Schedule
+      - identifier:
+          functionExternalId: oee_timeseries
+          name: Run calculations once a day for 30 days history (Houston)
+        source:
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
+          hash: 74530d91
+        kind: Schedule
+      - identifier:
+          functionExternalId: oee_timeseries
+          name: Run calculations once a day for 30 days history (Sao Paulo)
+        source:
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
+          hash: 74530d91
+        kind: Schedule
+      - identifier:
+          functionExternalId: oee_timeseries
+          name: Run calculations once a day for 30 days history (Kuala Lumpur)
+        source:
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
+          hash: 74530d91
+        kind: Schedule
+      - identifier:
+          functionExternalId: oee_timeseries
+          name: Run calculations once a day for 30 days history (Chicago)
+        source:
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
+          hash: 74530d91
+        kind: Schedule
+      - identifier:
+          functionExternalId: oee_timeseries
+          name: Run calculations once a day for 30 days history (Rotterdam)
+        source:
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
+          hash: 74530d91
+        kind: Schedule
+      - identifier:
+          functionExternalId: oee_timeseries
+          name: Run calculations once a day for 30 days history (London)
+        source:
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
+          hash: 74530d91
+        kind: Schedule
+    warning_count: 0
+    status: Success
+    iteration: 1
+  - name: ice_cream_api
+    location:
+      path: modules/bootcamp/ice_cream_api
+      hash: 5a64586f
+    build_variables:
+    - key: CDF_PROJECT
+      value: cdf-bootcamp-30-test
+      is_selected: true
+      location: modules/bootcamp
+    - key: IDP_CLIENT_ID
+      value: ${IDP_CLIENT_ID}
+      is_selected: true
+      location: modules/bootcamp
+    - key: IDP_CLIENT_SECRET
+      value: ${IDP_CLIENT_SECRET}
+      is_selected: true
+      location: modules/bootcamp
+    - key: IDP_TENANT_ID
+      value: ${IDP_TENANT_ID}
+      is_selected: true
+      location: modules/bootcamp
+    - key: CDF_URL
+      value: https://westeurope-1.cognitedata.com
+      is_selected: true
+      location: modules/bootcamp
+    - key: IDP_SCOPES
+      value: https://westeurope-1.cognitedata.com/.default
+      is_selected: true
+      location: modules/bootcamp
+    - key: IDP_TOKEN_URL
+      value: ${IDP_TOKEN_URL}
+      is_selected: true
+      location: modules/bootcamp
+    - key: data_pipeline_oee_source_id
+      value: 646b5cb3-1f08-4650-bea0-6318d0507f31
+      is_selected: true
+      location: modules/bootcamp
+    - key: readwrite_source_id
+      value: 71c83e29-f152-4fa0-ab55-0b85452b6582
+      is_selected: true
+      location: modules/bootcamp
+    - key: readonly_source_id
+      value: 71c83e29-f152-4fa0-ab55-0b85452b6582
       is_selected: true
       location: modules/bootcamp
     - key: icapi_extractors_source_id
@@ -361,178 +533,13 @@ modules:
         extra_sources:
         - path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/transformations/icapi_assets_ts_contextualization.sql
           hash: bcf4d56b
-    warning_count: 0
-    status: Success
-    iteration: 1
-  - name: oee
-    location:
-      path: modules/bootcamp/use_cases/oee
-      hash: 1802dfb0
-    build_variables:
-    - key: CDF_PROJECT
-      value: cdf-bootcamp-30-test
-      is_selected: true
-      location: modules/bootcamp
-    - key: IDP_CLIENT_ID
-      value: ${IDP_CLIENT_ID}
-      is_selected: true
-      location: modules/bootcamp
-    - key: IDP_CLIENT_SECRET
-      value: ${IDP_CLIENT_SECRET}
-      is_selected: true
-      location: modules/bootcamp
-    - key: IDP_TENANT_ID
-      value: ${IDP_TENANT_ID}
-      is_selected: true
-      location: modules/bootcamp
-    - key: CDF_URL
-      value: https://westeurope-1.cognitedata.com
-      is_selected: true
-      location: modules/bootcamp
-    - key: IDP_SCOPES
-      value: https://westeurope-1.cognitedata.com/.default
-      is_selected: true
-      location: modules/bootcamp
-    - key: IDP_TOKEN_URL
-      value: ${IDP_TOKEN_URL}
-      is_selected: true
-      location: modules/bootcamp
-    - key: data_pipeline_oee_source_id
-      value: 646b5cb3-1f08-4650-bea0-6318d0507f31
-      is_selected: true
-      location: modules/bootcamp
-    - key: readwrite_source_id
-      value: c42e62be-e4cc-425d-a534-8d1d623ccb12
-      is_selected: true
-      location: modules/bootcamp
-    - key: readonly_source_id
-      value: c42e62be-e4cc-425d-a534-8d1d623ccb12
-      is_selected: true
-      location: modules/bootcamp
-    - key: icapi_extractors_source_id
-      value: 39376f27-8890-44f0-8b07-bd95fb48c689
-      is_selected: true
-      location: modules/bootcamp
-    - key: data_developer_source_id
-      value: 0e61e9f9-8242-4da5-9228-4682baf6f9c4
-      is_selected: true
-      location: modules/bootcamp
-    - key: data_pipeline_oee_client_id
-      value: ${DATA_PIPELINE_OEE_CLIENT_ID}
-      is_selected: true
-      location: modules/bootcamp
-    - key: data_pipeline_oee_client_secret
-      value: ${DATA_PIPELINE_OEE_CLIENT_SECRET}
-      is_selected: true
-      location: modules/bootcamp
-    - key: icapi_extractors_client_id
-      value: ${ICAPI_EXTRACTORS_CLIENT_ID}
-      is_selected: true
-      location: modules/bootcamp
-    - key: icapi_extractors_client_secret
-      value: ${ICAPI_EXTRACTORS_CLIENT_SECRET}
-      is_selected: true
-      location: modules/bootcamp
-    - key: icapi_ds_external_id
-      value: ds_icapi
-      is_selected: true
-      location: modules/bootcamp
-    - key: uc_oee_ds_external_id
-      value: ds_uc_oee
-      is_selected: true
-      location: modules/bootcamp/use_cases/oee
-    resources:
-      auth:
+      workflows:
       - identifier:
-          name: data_pipeline_oee
+          externalId: wf_icapi_data_pipeline
         source:
-          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/auth/data_pipeline_oee.yml
-          hash: 0afae7d2
-        kind: Group
-      data_sets:
-      - identifier:
-          externalId: ds_uc_oee
-        source:
-          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/data_sets/data_sets.yml
-          hash: 4612e700
-        kind: DataSet
-      functions:
-      - identifier:
-          externalId: oee_timeseries
-        source:
-          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/functions.yaml
-          hash: 3579da40
-        kind: Function
-      - identifier:
-          functionExternalId: oee_timeseries
-          name: Run calculations every 10 minutes for last hour of data
-        source:
-          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
-          hash: 74530d91
-        kind: Schedule
-      - identifier:
-          functionExternalId: oee_timeseries
-          name: Run calculations once a day for 30 days history (Oslo)
-        source:
-          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
-          hash: 74530d91
-        kind: Schedule
-      - identifier:
-          functionExternalId: oee_timeseries
-          name: Run calculations once a day for 30 days history (Nuremberg)
-        source:
-          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
-          hash: 74530d91
-        kind: Schedule
-      - identifier:
-          functionExternalId: oee_timeseries
-          name: Run calculations once a day for 30 days history (Marseille)
-        source:
-          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
-          hash: 74530d91
-        kind: Schedule
-      - identifier:
-          functionExternalId: oee_timeseries
-          name: Run calculations once a day for 30 days history (Houston)
-        source:
-          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
-          hash: 74530d91
-        kind: Schedule
-      - identifier:
-          functionExternalId: oee_timeseries
-          name: Run calculations once a day for 30 days history (Sao Paulo)
-        source:
-          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
-          hash: 74530d91
-        kind: Schedule
-      - identifier:
-          functionExternalId: oee_timeseries
-          name: Run calculations once a day for 30 days history (Kuala Lumpur)
-        source:
-          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
-          hash: 74530d91
-        kind: Schedule
-      - identifier:
-          functionExternalId: oee_timeseries
-          name: Run calculations once a day for 30 days history (Chicago)
-        source:
-          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
-          hash: 74530d91
-        kind: Schedule
-      - identifier:
-          functionExternalId: oee_timeseries
-          name: Run calculations once a day for 30 days history (Rotterdam)
-        source:
-          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
-          hash: 74530d91
-        kind: Schedule
-      - identifier:
-          functionExternalId: oee_timeseries
-          name: Run calculations once a day for 30 days history (London)
-        source:
-          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee/functions/schedules.yaml
-          hash: 74530d91
-        kind: Schedule
-    warning_count: 0
+          path: C:/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/workflows/wf_icapi_data_pipeline.WorkFlow.yaml
+          hash: 4c634df4
+        kind: Workflow
+    warning_count: 1
     status: Success
     iteration: 1

@@ -25,7 +25,12 @@ extractor:
   - Chicago
   - Rotterdam
   - London
+  state_store:
+    raw:
+      database: State Store
+      table: icapi_datapoints_extractor
 
 logger:
   console:
     level: INFO
+type: local

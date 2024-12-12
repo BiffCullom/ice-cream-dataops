@@ -33,6 +33,21 @@ workflowDefinition:
       dependsOn:
         - externalId: icapi_ts_assets_contextualization
 
+    - externalId: icapi_ts_assets_contextualization
+      type: 'transformation'
+      parameters:
+        transformation:
+          externalId: icapi_ts_assets_contextualization
+          data: {}
+        isAsyncComplete: false  
+      name: 'Task icapi_ts_assets_contextualization'
+      description: Third task
+      retries: 3 
+      timeout: 3600
+      onFailure: 'abortWorkflow'
+      dependsOn:
+        - externalId: icapi_ts_assets_contextualization
+
     - externalId: oee_timeseries
       type: 'function'
       parameters:
@@ -41,7 +56,7 @@ workflowDefinition:
           data: {}
         isAsyncComplete: false  
       name: 'Task oee_timeseries'
-      description: Third task
+      description: Forth task
       retries: 3 
       timeout: 3600
       onFailure: 'abortWorkflow'
@@ -54,7 +69,7 @@ workflowDefinition:
           data: {}
         isAsyncComplete: false  
       name: 'Task icapi_timeseries_extractor'
-      description: Forth task
+      description: Fifth task
       retries: 3 
       timeout: 3600
       onFailure: 'abortWorkflow'
@@ -69,7 +84,7 @@ workflowDefinition:
           data: {}
         isAsyncComplete: false  
       name: 'Task icapi_datapoints_extractor'
-      description: Fifth task
+      description: Sixth task
       retries: 3 
       timeout: 3600
       onFailure: 'abortWorkflow'
